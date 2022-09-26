@@ -11,7 +11,7 @@
  * number of geometry stacks and slices can be adjusted
  * using the + and - keys.
  */
-
+#include <windows.h>
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -20,7 +20,7 @@
 
 #include <stdlib.h>
 
-// PROGRAM MENGGAMBAR POLIGON
+// PROGRAM MENGGAMBAR GARIS
 
 #include <windows.h>
 #ifdef _APPLE_
@@ -31,43 +31,19 @@
 
 #include <stdlib.h>
 
-void trapesium()
+void draw()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0, 0.2, 1.0);
+    glColor3f(1.0, 1.0, 1.0);
 
-    glBegin(GL_POLYGON);
-
-    glVertex2f(0.2, 0.3);   // Titik 1
-    glVertex2f(0.7, 0.3);   // Titik 2
-    glVertex2f(0.8, 0.7);   // Titik 3
-    glVertex2f(0.3, 0.7);   // Titik 4
-
-    glEnd();
-
-    glColor3f(1.0, 0.0, 0.0);
-    glLineWidth(4.0);
-
+    glLineWidth(2.5);
     glBegin(GL_LINES);
 
-    glColor3f(0.1, 1.0, 0.0);
-    glVertex2f(0.2, 0.3);   // Garis 1
-    glVertex2f(0.7, 0.3);
-
-    glColor3f(1.0, 1.0, 0.0);
-    glVertex2f(0.7, 0.3);   // Garis 2
-    glVertex2f(0.8, 0.7);
-
-    glColor3f(1.0, 0.0, 0.0);
-    glVertex2f(0.8, 0.7);   // Garis 3
-    glVertex2f(0.3, 0.7);
-
-    glColor3f(0.0, 1.0, 1.0);
-    glVertex2f(0.3, 0.7);   // Garis 4
-    glVertex2f(0.2, 0.3);
+    glColor3f(0.0, 0.4, 1.0);   //Warna Biru
+    glVertex3f(0.2, 0.5, 0.0);  // Koordinat Titik 1
+    glVertex3f(0.8, 0.7, 0.0);  // Koordinat Titik 2
 
     glEnd();
-
     glFlush();
 }
 
@@ -86,7 +62,7 @@ int main(int iArgc, char** cppArgv){
     glutInitWindowPosition(200, 200);
     glutCreateWindow("Point");
     Initialize();
-    glutDisplayFunc(trapesium);
+    glutDisplayFunc(draw);
     glutMainLoop();
     return 0;
 }
